@@ -1,0 +1,42 @@
+a {
+  color: #1d89ff;
+  cursor: pointer; }
+
+.sep-box {
+  display: flex; }
+
+.sep {
+  flex: 1;
+  padding: 15px; }
+
+.api-input {
+  font-size: 1.2em;
+  width: 100%;
+  outline: none;
+  padding: 5px; }
+
+.api-textarea {
+  width: 100%;
+  outline: none;
+  padding: 5px;
+  border: 1px solid #ccc; }
+
+.table-box {
+  max-height: 500px;
+  overflow: auto; }
+
+table {
+  border: 1px solid #ddd;
+  border-collapse: collapse; }
+
+table th, table td {
+  font-size: 0.9em;
+  padding: 3px 6px;
+  text-align: left;
+  border: 1px solid #ddd; }
+
+.chart {
+  width: 100%;
+  height: 400px; }
+
+/*# sourceMappingURL=base.css.map */

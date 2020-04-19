@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visual Api</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <!--    <script type="text/javascript" src="js/jquery-3.5.0.js"></script>-->
+    <!--    <script type="text/javascript" src="js/g2.min.js"></script>-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/antv/g2/4.0.7/dist/g2.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+<h1>API数据可视化</h1>
+<p>从指定api地址获取数据，简单配置后实现数据可视化。</p>
+
+<div class="sep-box">
+
+    <div class="sep">
+        <h3>Api地址</h3>
+        <!--        <input type="text" class="api-input" id="apiInput" value="https://covidtracking.com/api/states/daily"/>-->
+        <input type="text" class="api-input" id="apiInput" value="https://covidtracking.com/api/states"/>
+        <button id="getDataBtn">获取数据</button>
+        <h3>数据</h3>
+        <textarea class="api-textarea" id="apiData" rows="10"></textarea>
+        <h3>数据过滤条件</h3>
+        <textarea class="api-textarea" id="dataFilter" rows="5" placeholder="示例：positive > 100，state in ['AK', 'NY', 'NJ']，可用表达式：<、<=、>、>=、=、in、not in，多个条件用换行区分"></textarea>
+    </div>
+    <div class="sep">
+        <h3>数据属性</h3>
+
+        <div class="table-box">
+            <table width="100%">
+                <thead>
+                <tr>
+                    <th>属性</th>
+                    <th>别名</th>
+                    <th>显示处理方式</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody id="dataAttrsBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="sep-box">
+    <div class="sep">
+        <div>
+            <h3>绘图方式</h3>
+            <label><input type="radio" name="chartType" value="line" checked/>折线图</label>
+            <label><input type="radio" name="chartType" value="bar"/>柱状图</label>
+            <label><input type="radio" name="chartType" value="pie"/>饼图</label>
+            <label><input type="radio" name="chartType" value="stack"/>堆叠图</label>
+            <label><input type="radio" name="chartType" value="bubble"/>气泡图</label>
+        </div>
+        <div>
+            <h3>绘图选项</h3>
+            <p>分组字段：<select id="groupSel" class="attr-sel" data-show="line,stack"></select>相同颜色的数据</p>
+            <p>X轴字段：<select id="xSel" class="attr-sel" data-show="line,bar,stack"></select></p>
+            <p>Y轴字段：<select id="ySel" class="attr-sel" data-show="line,bar,stack"></select></p>
+            <p>标签字段：<select id="labelSel" class="attr-sel" data-show="pie"></select></p>
+            <p>数值字段：<select id="valSel" class="attr-sel" data-show="pie"></select></p>
+            <p>气泡大小：<select id="bubbleSel" class="attr-sel" data-show="bubble"></select></p>
+        </div>
+
+        <div>
+            <button id="drawChartBtn">绘制图形</button>
+        </div>
+    </div>
+    <div class="sep">
+        <div class="chart" id="g2chart"></div>
+    </div>
+</div>
+
+</body>
+</html>
